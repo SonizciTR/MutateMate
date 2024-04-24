@@ -37,7 +37,9 @@ def wrt(msg_to_print : str):
 @app.route('/mutate', methods=['POST'])
 def mutate_pod():
     #For Emergency. By pass everything; uncomment this return:
-    if(is_emergency): return send_response(request.json)
+    if(is_emergency): 
+        wrt("By pass active, sending request untouched.")
+        return send_response(request.json)
     #
 
     #try catch will be added here:
