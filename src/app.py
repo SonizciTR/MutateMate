@@ -23,7 +23,7 @@ cnst_notebook = "Notebook"
 cnst_kube_url = os.getenv("BASE_URL")
 cnst_kube_access_token = os.getenv("ACCESS_TOKEN")
 cnst_kube_current_namespace = os.getenv("kubeprojectname")
-is_emergency = os.getenv("is_emergency", 'False').lower() in ('true', '1', 't')
+is_emergency = os.getenv("is_emergency", False).lower() in ('true', '1', 't')
 
 crd_name_list = [ cnst_pipeline, cnst_notebook ]
 

@@ -8,4 +8,4 @@ metadata:
 data:
   kubeprojectname: {{ .Release.Namespace | quote }}
   appname: {{ .Values.appname }}
-  is_emergency: False
+  is_emergency: "False"
