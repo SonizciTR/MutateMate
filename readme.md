@@ -28,8 +28,9 @@ cat /run/secrets/kubernetes.io/serviceaccount/token
 ### caBundle Value
 
 Mutating webhook needs caBundle value of that cluster. To find the correct value, goto:
+
 Home => API Explorer => Filter: MutatingWebhookConfiguration => Tab: Instances => find one contains: openshift => Open Yaml tab and find caBundle value from there
 
 Then add change your "webhook.definition.yaml" file's cabundle value or if you already installed then goto:
 Home => API Explorer => Filter: MutatingWebhookConfiguration => Tab: Instances => find one contains your helm installation name and change the cabundle value.
-After this start a rollout for deploment
+After this start a rollout for deployment
