@@ -50,7 +50,7 @@ def mutate_pod():
     try:
         return main_flow(tmp_uid, request)
     except Exception as e:
-        wrt(tmp_uid, f"Error happened. Sending request untouched. Detail=> {e}")
+        wrt(tmp_uid, f"!!! Error happened. Sending request untouched. Detail=> {e}")
 
     return send_response(tmp_uid, request.json)
 
@@ -59,11 +59,11 @@ def main_flow(unq_id: str, request):
 
     payload = []
     
-    wrt(f"Request consumed => {req_data.to_json()}")
+    wrt(unq_id, f"Request consumed => {req_data.to_json()}")
 
     #################
 
-    if req_data.kind not in crd_name_list : return send_response(request.json)
+    if req_data.kind not in crd_name_list : return send_response(unq_id, request.json)
 
     kube_service = KubeWrapperService(cnst_kube_url, cnst_kube_access_token)
 
