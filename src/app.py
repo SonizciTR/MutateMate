@@ -23,7 +23,7 @@ cnst_notebook = "Notebook"
 cnst_kube_url = os.getenv("BASE_URL")
 cnst_kube_access_token = os.getenv("ACCESS_TOKEN")
 cnst_kube_current_namespace = os.getenv("kubeprojectname")
-is_emergency = os.getenv("is_emergency", False).lower() in ('true', '1', 't')
+is_emergency = os.getenv("is_emergency", "False").lower() in ('true', '1', 't')
 
 crd_name_list = [ cnst_pipeline, cnst_notebook ]
 
@@ -36,29 +36,29 @@ def wrt(msg_to_print : str):
 
 @app.route('/mutate', methods=['POST'])
 def mutate_pod():
-    #For Emergency. By pass everything; uncomment this return:
+    wrt("********************** Mutate **********************")
+    tmp_uid = request.json.get("request").get("uid")
+    wrt(json.dumps(request.json))
+
+    #For Emergency. By pass everything.
     if(is_emergency): 
         wrt("By pass active, sending request untouched.")
         return send_response(request.json)
     #
 
-    #try catch will be added here:
-    return main_flow(request)
+    try:
+        return main_flow(request)
+    except Exception as e:
+        wrt(f"Error happened. Sending request untouched. Detail=> {e}")
+
     return send_response(request.json)
 
 def main_flow(request):
-    wrt("********************** Mutate **********************")
-    wrt(json.dumps(request.json))
-
     req_data = JsonBag(request.json, cnst_kube_current_namespace)
 
     payload = []
-    #payload = [{"op": "add", "path": "/metadata/labels", "value": {"thy.editedby": "MutateMate" }}]
-    #payload = mutate_helper.add_our_label(request.json["request"]["object"]["metadata"]["labels"])
-    
     
     wrt(f"Request consumed => {req_data.to_json()}")
-    wrt(f"Payload initial => {payload}")
 
     #################
 
