@@ -31,29 +31,30 @@ notebook_mutater = NotebookMutaterService()
 pipeline_mutater = PipelineRunMutaterService()
 mutate_helper = MutatingHelperService()
 
-def wrt(msg_to_print : str):
-    print(f">>> {msg_to_print}")
+def wrt(unq_id : str, msg_to_print : str):
+    print(f"[{unq_id}] >>> {msg_to_print}")
 
 @app.route('/mutate', methods=['POST'])
 def mutate_pod():
-    wrt("********************** Mutate **********************")
     tmp_uid = request.json.get("request").get("uid")
-    wrt(json.dumps(request.json))
+    wrt(tmp_uid, "********************** Mutate **********************")
+    
+    wrt(tmp_uid, json.dumps(request.json))
 
     #For Emergency. By pass everything.
     if(is_emergency): 
-        wrt("By pass active, sending request untouched.")
+        wrt(tmp_uid, "By pass active, sending request untouched.")
         return send_response(request.json)
     #
 
     try:
-        return main_flow(request)
+        return main_flow(tmp_uid, request)
     except Exception as e:
-        wrt(f"Error happened. Sending request untouched. Detail=> {e}")
+        wrt(tmp_uid, f"Error happened. Sending request untouched. Detail=> {e}")
 
-    return send_response(request.json)
+    return send_response(tmp_uid, request.json)
 
-def main_flow(request):
+def main_flow(unq_id: str, request):
     req_data = JsonBag(request.json, cnst_kube_current_namespace)
 
     payload = []
@@ -77,11 +78,11 @@ def main_flow(request):
         payload_extra = pipeline_mutater.mutate(req_data, kube_service)
 
     last_payload = payload + payload_extra
-    wrt(f"Payload last => {last_payload}")
+    wrt(unq_id, f"Payload last => {last_payload}")
 
-    return send_response(request.json, last_payload)
+    return send_response(unq_id, request.json, last_payload)
 
-def send_response(req_json, payload : list = None):
+def send_response(unq_id: str, req_json, payload : list = None):
     #https://kubernetes.io/docs/reference/access-authn-authz/extensible-admission-controllers/#response
     response = req_json.copy()
     uid = req_json['request']['uid']
@@ -99,7 +100,7 @@ def send_response(req_json, payload : list = None):
         response["response"]["patch"] = tmp_ser
     
     
-    wrt(response)
+    wrt(unq_id, response)
 
     return jsonify(response)
 
