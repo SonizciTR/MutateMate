@@ -24,8 +24,12 @@ class NotebookMutaterService:
             #Auto shutdown notebook trigger continously send update request. So every time this part adds same key values. To stop this I added these:
             tmp_rslt = self.is_key_already_exist(request_data.raw, itm_key)
             if(tmp_rslt): 
-                print(f"This key already exist => [{itm_key}]. Replacing it.")
-                nb_payload.append(mwh_service.replace_secret_for_notebook(itm_key, itm_value))
+                #Replace not working:
+                #print(f"This key already exist => [{itm_key}]. Replacing it.")
+                #nb_payload.append(mwh_service.replace_secret_for_notebook(itm_key, itm_value))
+                
+                print(f"This key already exist => [{itm_key}]. Not adding.")
+                continue
             else:
                 nb_payload.append(mwh_service.add_secret_for_notebook(itm_key, itm_value))
             #
