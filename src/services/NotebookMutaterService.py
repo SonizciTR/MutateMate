@@ -34,16 +34,18 @@ class NotebookMutaterService:
         
         if(tmp_array is None): return False
         
-        if(isinstance(tmp_array, collections.abc.Sequence)):
-            tmp_first = tmp_array[0]
-            tmp_envs_lst = tmp_first.get("env")
-            
-            if(isinstance(tmp_envs_lst, collections.abc.Sequence) and len(tmp_envs_lst) > 0):
-                for itm_env in tmp_envs_lst:
-                    tmp_val_key = itm_env.get("name", None)
-                    tmp_val_value = itm_env.get("value", None)
+        if(not isinstance(tmp_array, collections.abc.Sequence)): return False
+        
+        tmp_first = tmp_array[0]
+        tmp_envs_lst = tmp_first.get("env")
 
-                    if(tmp_val_key == key_looking): return True
+        if(not isinstance(tmp_envs_lst, collections.abc.Sequence) or len(tmp_envs_lst) == 0): return False
+        
+        for itm_env in tmp_envs_lst:
+            tmp_val_key = itm_env.get("name", None)
+            tmp_val_value = itm_env.get("value", None)
+
+            if(tmp_val_key == key_looking): return True
                 
         return False
     
