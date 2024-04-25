@@ -44,7 +44,7 @@ def mutate_pod():
     #For Emergency. By pass everything.
     if(is_emergency): 
         wrt(tmp_uid, "By pass active, sending request untouched.")
-        return send_response(request.json)
+        return send_response(tmp_uid, request.json)
     #
 
     try:
@@ -98,7 +98,6 @@ def send_response(unq_id: str, req_json, payload : list = None):
         tmp_ser = base64.b64encode(json.dumps(payload).encode('utf-8')).decode()
         response["response"]["patchType"] = "JSONPatch"
         response["response"]["patch"] = tmp_ser
-    
     
     wrt(unq_id, response)
 
