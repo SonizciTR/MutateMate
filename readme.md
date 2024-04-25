@@ -25,7 +25,7 @@ To get the access token for local debug; goto mutatemateapi pod and at the termi
 
 cat /run/secrets/kubernetes.io/serviceaccount/token
 
-### caBundle Value
+### caBundle Value :
 
 Mutating webhook needs caBundle value of that cluster. To find the correct value, goto:
 
@@ -33,4 +33,9 @@ Home => API Explorer => Filter: MutatingWebhookConfiguration => Tab: Instances =
 
 Then add change your "webhook.definition.yaml" file's cabundle value or if you already installed then goto:
 Home => API Explorer => Filter: MutatingWebhookConfiguration => Tab: Instances => find one contains your helm installation name and change the cabundle value.
-After this start a rollout for deployment
+After this start a rollout for deployment.
+
+###JSON Patch:
+
+This is the commands that makes the changes. Basic information:
+https://jsonpatch.com/
