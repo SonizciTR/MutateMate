@@ -13,6 +13,7 @@ class NotebookMutaterService:
 
     def mutate(self, request_data : JsonBag, kube_service : KubeWrapperService, secret_namespace : str) -> list:
         nb_payload = []
+        mwh_service = MutatingHelperService()
 
         hashtags = kube_service.get_hashtags_from_description(request_data.workbench_description)
         secrets_targeted = kube_service.get_all_secrets_by_filter(secret_namespace, hashtags)
@@ -26,9 +27,6 @@ class NotebookMutaterService:
         #
 
         if(len(secrets_targeted) == 0): return []
-        
-        mwh_service = MutatingHelperService()
-        
         
         for itm_key, itm_value in secrets_targeted.items():
             #Auto shutdown notebook trigger continously send update request. So every time this part adds same key values. To stop this I added these:
