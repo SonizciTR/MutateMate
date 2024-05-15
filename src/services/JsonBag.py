@@ -22,6 +22,6 @@ class JsonBag():
         tmp_obj = json_data["request"]["object"]
         
         self.kind = tmp_obj["kind"]
-        self.name = tmp_obj["metadata"]["name"]
-        self.namespace = tmp_obj["metadata"]["namespace"]
-        self.workbench_description = tmp_obj["metadata"]["annotations"].get("openshift.io/description")
+        self.name = tmp_obj.get("metadata").get("name")
+        self.namespace = tmp_obj.get("metadata").get("namespace")
+        self.workbench_description = tmp_obj.get("metadata").get("annotations").get("openshift.io/description")

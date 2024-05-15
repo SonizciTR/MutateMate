@@ -2,12 +2,13 @@
 import collections
 import json
 
+from services.BaseService import BaseService
 from services.JsonBag import JsonBag
 from services.KubeWrapperService import KubeWrapperService
 from services.MutatingHelperService import MutatingHelperService
 
 
-class NotebookMutaterService:
+class NotebookMutaterService(BaseService):
     def __init__(self) -> None:
         pass
 
@@ -88,11 +89,6 @@ class NotebookMutaterService:
 
         return all_envs
     
-    def safe_get(self, data : json, keys : list):
-        at_top = data.get(keys[0])
-        if(len(keys) == 1): return at_top
-        if(at_top == None): return at_top
-
-        return self.safe_get(at_top, keys[1:])
+    
     
     
