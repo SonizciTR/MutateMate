@@ -18,6 +18,9 @@ class MutatingHelperService:
     def add_secret_for_pipeline(self, task_index : int, key_name : str, real_value : str):
         return {"op": "add", "path": f"/spec/pipelineSpec/tasks/{task_index}/taskSpec/steps/0/env/-", "value": {"name": key_name, "value": real_value}}
     
+    def add_secret_for_argo_workflow(self, key_name : str, real_value : str):
+        return {"op": "add", "path": f"/spec/templates/2/container/env/-", "value": {"name": key_name, "value": real_value}}
+    
     def add_resource_for_pipeline(self, task_index : int, cpu_limit : str, ram_limit : str, gpu_limit : str):
         min_gpu = int(gpu_limit)
         if(min_gpu > 1): min_gpu = 1

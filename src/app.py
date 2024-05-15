@@ -6,6 +6,7 @@ import json
 from flask import Flask, request, jsonify
 from dotenv import load_dotenv
 
+from services.ArgoWorkflowMutaterService import ArgoWorkflowMutaterService
 from services.MutatingHelperService import MutatingHelperService
 
 load_dotenv()
@@ -19,16 +20,18 @@ app = Flask(__name__)
 
 cnst_pipeline = "PipelineRun"
 cnst_notebook = "Notebook"
+cnst_argoworkflow = "Workflow"
 
 cnst_kube_url = os.getenv("BASE_URL")
 cnst_kube_access_token = os.getenv("ACCESS_TOKEN")
 cnst_kube_current_namespace = os.getenv("kubeprojectname")
 is_emergency = os.getenv("is_emergency", "False").lower() in ('true', '1', 't')
 
-crd_name_list = [ cnst_pipeline, cnst_notebook ]
+crd_name_list = [ cnst_pipeline, cnst_notebook, cnst_argoworkflow ]
 
 notebook_mutater = NotebookMutaterService()
 pipeline_mutater = PipelineRunMutaterService()
+argo_mutater = ArgoWorkflowMutaterService()
 mutate_helper = MutatingHelperService()
 
 def wrt(unq_id : str, msg_to_print : str):
@@ -77,6 +80,9 @@ def main_flow(unq_id: str, request):
     if req_data.kind == cnst_pipeline: 
         #payload = [{"op": "add", "path": "/metadata/thysection", "value": {"thy.editedby": "MutateMate" }}]
         payload_extra = pipeline_mutater.mutate(req_data, kube_service)
+    
+    if req_data.kind == cnst_argoworkflow: #Argo workflow (Redhat AI 2.9+)
+        payload_extra = argo_mutater.mutate(req_data, kube_service)
 
     last_payload = payload + payload_extra
     wrt(unq_id, f"Payload last => {last_payload}")
