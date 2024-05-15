@@ -18,13 +18,13 @@ class NotebookMutaterService:
         hashtags = kube_service.get_hashtags_from_description(request_data.workbench_description)
         secrets_targeted = kube_service.get_all_secrets_by_filter(secret_namespace, hashtags)
 
-        #if there is already added value but removed the we should remove them:
-        existing_envs = self.get_all_env_keys(request_data.raw)
-        for itm_exs_key, itm_exs_value in existing_envs.items():
-            if(itm_exs_key in secrets_targeted):
-                continue
-            nb_payload.append(mwh_service.remove_secret_for_notebook(itm_exs_key, itm_exs_value))
-        #
+        # #if there is already added value but removed the we should remove them:
+        # existing_envs = self.get_all_env_keys(request_data.raw)
+        # for itm_exs_key, itm_exs_value in existing_envs.items():
+        #     if(itm_exs_key in secrets_targeted):
+        #         continue
+        #     nb_payload.append(mwh_service.remove_secret_for_notebook(itm_exs_key, itm_exs_value))
+        # #
 
         if(len(secrets_targeted) == 0): return []
         
