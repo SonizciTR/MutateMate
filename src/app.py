@@ -59,7 +59,7 @@ def main_flow(unq_id: str, request):
 
     payload = []
     
-    wrt(unq_id, f"Request consumed => {req_data.to_json()}")
+    wrt(unq_id, f"Parsed Info => {req_data.to_json()}")
 
     #################
 
