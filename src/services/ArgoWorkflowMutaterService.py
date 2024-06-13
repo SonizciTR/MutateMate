@@ -20,6 +20,7 @@ class ArgoWorkflowMutaterService(BaseService):
 
         #Secret commands:
         for itm_key, itm_value in kube_secrets.items():
+            if(self.is_env_exist(data_req, itm_key, itm_value)): continue
             pr_payload.append(mwh_service.add_secret_for_argo_workflow(itm_key, itm_value))
         
         #resource commands:
@@ -32,3 +33,17 @@ class ArgoWorkflowMutaterService(BaseService):
             pr_payload.append(mwh_service.replace_resource_for_argo_workflow(indx, kube_cpu, kube_ram, kube_gpu))
             
         return pr_payload
+    
+    def is_env_exist(self, data_req : JsonBag, env_key : str, env_value : str):
+        tmp_specs = self.safe_get(data_req.raw, ["request", "object", "spec", "templates"])
+
+        for itm_template in tmp_specs:
+            tmp_envs = self.safe_get(itm_template, ["container", "env"])
+            if(tmp_envs is None): continue
+
+            for itm_env in tmp_envs:
+                tmp_key  = itm_env.get("name")
+                tmp_value = self.safe_get(itm_env, ["valueFrom","fieldRef","fieldPath"])
+                if(tmp_key == env_key) and (tmp_value == env_value): return True
+
+        return False
