@@ -73,8 +73,14 @@ class KubeWrapperService:
         tmp_all_secrets = []
         for itm in notebook_items.get("items"):
             tmp_desc = itm["metadata"]["annotations"].get("openshift.io/description")
-            if(len(tmp_desc) > 0): 
-                tmp_spltd = self.get_hashtags_from_description(tmp_desc)
+            tmp_disp = itm["metadata"]["annotations"].get("openshift.io/display-name")
+
+            tmp_wbname = ""
+            if(len(tmp_desc) > 0): tmp_wbname = tmp_desc
+            elif(len(tmp_disp) > 0): tmp_wbname = tmp_disp
+
+            if(len(tmp_wbname) > 0): 
+                tmp_spltd = self.get_hashtags_from_description(tmp_wbname)
                 tmp_all_secrets = tmp_all_secrets + tmp_spltd
         
         return tmp_all_secrets
