@@ -42,7 +42,7 @@ Becareful sometimes cabundle differ with each custom object definition. If there
 This is the commands that makes the changes. Basic information:
 https://jsonpatch.com/
 
-###JFinding Right apiGroups, apiVersions, resources:
+### Finding Right apiGroups, apiVersions, resources:
 
 ** apiGroups, apiVersions **
 
