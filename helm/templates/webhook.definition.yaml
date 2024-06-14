@@ -24,11 +24,14 @@ webhooks:
         apiGroups:
           - kubeflow.org
           - tekton.dev
+          - argoproj.io
         apiVersions:
           - v1
+          - v1alpha1
         resources:
           - notebooks
           - pipelineruns
+          - workflows
         scope: '*'
     matchPolicy: Equivalent
     namespaceSelector: {}
