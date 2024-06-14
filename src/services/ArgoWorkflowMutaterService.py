@@ -43,7 +43,10 @@ class ArgoWorkflowMutaterService(BaseService):
 
             for itm_env in tmp_envs:
                 tmp_key  = itm_env.get("name")
-                tmp_value = self.safe_get(itm_env, ["valueFrom","fieldRef","fieldPath"])
+
+                tmp_value = self.safe_get(itm_env, ["valueFrom","fieldRef","fieldPath"])                
+                if (tmp_value is None) or (len(tmp_value) == 0): tmp_value = itm_env.get("value")
+
                 if(tmp_key == env_key) and (tmp_value == env_value): return True
 
         return False

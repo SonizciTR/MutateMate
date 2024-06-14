@@ -2,7 +2,7 @@
     "kind": "AdmissionReview",
     "apiVersion": "admission.k8s.io/v1",
     "request": {
-        "uid": "a72f3217-5a3a-4f99-9d74-3c034288f4ed",
+        "uid": "e25bb640-d56f-48d3-a718-ebe0b504a6c8",
         "kind": {
             "group": "argoproj.io",
             "version": "v1alpha1",
@@ -23,11 +23,12 @@
             "version": "v1alpha1",
             "resource": "workflows"
         },
+        "name": "show-must-goon-22wfr",
         "namespace": "ozndenemeproject",
-        "operation": "CREATE",
+        "operation": "UPDATE",
         "userInfo": {
-            "username": "system:serviceaccount:ozndenemeproject:ds-pipeline-dspa",
-            "uid": "fd4cf357-2f46-40de-b35d-b14509a7459e",
+            "username": "system:serviceaccount:ozndenemeproject:ds-pipeline-workflow-controller-dspa",
+            "uid": "0eb81e07-1314-4e0f-a67f-f73322bf342e",
             "groups": [
                 "system:serviceaccounts",
                 "system:serviceaccounts:ozndenemeproject",
@@ -35,10 +36,10 @@
             ],
             "extra": {
                 "authentication.kubernetes.io/pod-name": [
-                    "ds-pipeline-dspa-668554694-qtzbz"
+                    "ds-pipeline-workflow-controller-dspa-5b4cdb559-lpbt5"
                 ],
                 "authentication.kubernetes.io/pod-uid": [
-                    "c85a1a31-7365-4042-bc29-88bb852f9707"
+                    "74178dab-9df6-4b89-be27-439fadaa80ca"
                 ]
             }
         },
@@ -50,15 +51,19 @@
                     "pipelines.kubeflow.org/components-comp-run-a-file": "{\"executorLabel\":\"exec-run-a-file\"}",
                     "pipelines.kubeflow.org/components-comp-run-a-file-2": "{\"executorLabel\":\"exec-run-a-file-2\"}",
                     "pipelines.kubeflow.org/components-root": "{\"dag\":{\"tasks\":{\"run-a-file\":{\"cachingOptions\":{\"enableCache\":true},\"componentRef\":{\"name\":\"comp-run-a-file\"},\"taskInfo\":{\"name\":\"NotebookExample1\"}},\"run-a-file-2\":{\"cachingOptions\":{\"enableCache\":true},\"componentRef\":{\"name\":\"comp-run-a-file-2\"},\"dependentTasks\":[\"run-a-file\"],\"taskInfo\":{\"name\":\"NotebookExample2\"}}}}}",
-                    "pipelines.kubeflow.org/implementations-comp-run-a-file": "{\"args\":[\"sh -c \\\"mkdir -p ./jupyter-work-dir \\u0026\\u0026 cd ./jupyter-work-dir\\\"\\nsh -c \\\"echo 'Downloading file:///opt/app-root/bin/utils/bootstrapper.py' \\u0026\\u0026 curl --fail -H 'Cache-Control: no-cache' -L file:///opt/app-root/bin/utils/bootstrapper.py --output bootstrapper.py\\\"\\nsh -c \\\"echo 'Downloading file:///opt/app-root/bin/utils/requirements-elyra.txt' \\u0026\\u0026 curl --fail -H 'Cache-Control: no-cache' -L file:///opt/app-root/bin/utils/requirements-elyra.txt --output requirements-elyra.txt\\\"\\nsh -c \\\"python3 -m pip install  packaging \\u0026\\u0026 python3 -m pip freeze \\u003e requirements-current.txt \\u0026\\u0026 python3 bootstrapper.py --pipeline-name 'show_must_goon' --cos-endpoint 'http://minio-service.s3minio.svc.cluster.local:9000' --cos-bucket 'pipeline' --cos-directory 'show_must_goon-0614061221' --cos-dependencies-archive 'NotebookExample1-e164088a-3809-45a2-861c-5eb74a48c459.tar.gz' --file 'pipeline_example/NotebookExample1.ipynb' \\\"\\n\"],\"command\":[\"sh\",\"-c\"],\"env\":[{\"name\":\"ELYRA_RUNTIME_ENV\",\"value\":\"kfp\"},{\"name\":\"ELYRA_ENABLE_PIPELINE_INFO\",\"value\":\"True\"},{\"name\":\"ELYRA_WRITABLE_CONTAINER_DIR\",\"value\":\"/tmp\"},{\"name\":\"ELYRA_RUN_NAME\",\"value\":\"random-placeholder\"}],\"image\":\"quay.io/modh/runtime-images@sha256:6e79572d12176d89911130875b70e4f20c5150577be7053374f5c5e711621946\"}",
-                    "pipelines.kubeflow.org/implementations-comp-run-a-file-2": "{\"args\":[\"sh -c \\\"mkdir -p ./jupyter-work-dir \\u0026\\u0026 cd ./jupyter-work-dir\\\"\\nsh -c \\\"echo 'Downloading file:///opt/app-root/bin/utils/bootstrapper.py' \\u0026\\u0026 curl --fail -H 'Cache-Control: no-cache' -L file:///opt/app-root/bin/utils/bootstrapper.py --output bootstrapper.py\\\"\\nsh -c \\\"echo 'Downloading file:///opt/app-root/bin/utils/requirements-elyra.txt' \\u0026\\u0026 curl --fail -H 'Cache-Control: no-cache' -L file:///opt/app-root/bin/utils/requirements-elyra.txt --output requirements-elyra.txt\\\"\\nsh -c \\\"python3 -m pip install  packaging \\u0026\\u0026 python3 -m pip freeze \\u003e requirements-current.txt \\u0026\\u0026 python3 bootstrapper.py --pipeline-name 'show_must_goon' --cos-endpoint 'http://minio-service.s3minio.svc.cluster.local:9000' --cos-bucket 'pipeline' --cos-directory 'show_must_goon-0614061221' --cos-dependencies-archive 'NotebookExample2-63b88238-caaa-44f9-aaee-9b8c55b8fc02.tar.gz' --file 'pipeline_example/NotebookExample2.ipynb' \\\"\\n\"],\"command\":[\"sh\",\"-c\"],\"env\":[{\"name\":\"ELYRA_RUNTIME_ENV\",\"value\":\"kfp\"},{\"name\":\"ELYRA_ENABLE_PIPELINE_INFO\",\"value\":\"True\"},{\"name\":\"ELYRA_WRITABLE_CONTAINER_DIR\",\"value\":\"/tmp\"},{\"name\":\"ELYRA_RUN_NAME\",\"value\":\"random-placeholder\"}],\"image\":\"quay.io/modh/runtime-images@sha256:6e79572d12176d89911130875b70e4f20c5150577be7053374f5c5e711621946\"}",
+                    "pipelines.kubeflow.org/implementations-comp-run-a-file": "{\"args\":[\"sh -c \\\"mkdir -p ./jupyter-work-dir \\u0026\\u0026 cd ./jupyter-work-dir\\\"\\nsh -c \\\"echo 'Downloading file:///opt/app-root/bin/utils/bootstrapper.py' \\u0026\\u0026 curl --fail -H 'Cache-Control: no-cache' -L file:///opt/app-root/bin/utils/bootstrapper.py --output bootstrapper.py\\\"\\nsh -c \\\"echo 'Downloading file:///opt/app-root/bin/utils/requirements-elyra.txt' \\u0026\\u0026 curl --fail -H 'Cache-Control: no-cache' -L file:///opt/app-root/bin/utils/requirements-elyra.txt --output requirements-elyra.txt\\\"\\nsh -c \\\"python3 -m pip install  packaging \\u0026\\u0026 python3 -m pip freeze \\u003e requirements-current.txt \\u0026\\u0026 python3 bootstrapper.py --pipeline-name 'show_must_goon' --cos-endpoint 'http://minio-service.s3minio.svc.cluster.local:9000' --cos-bucket 'pipeline' --cos-directory 'show_must_goon-0614082355' --cos-dependencies-archive 'NotebookExample1-e164088a-3809-45a2-861c-5eb74a48c459.tar.gz' --file 'pipeline_example/NotebookExample1.ipynb' \\\"\\n\"],\"command\":[\"sh\",\"-c\"],\"env\":[{\"name\":\"ELYRA_RUNTIME_ENV\",\"value\":\"kfp\"},{\"name\":\"ELYRA_ENABLE_PIPELINE_INFO\",\"value\":\"True\"},{\"name\":\"ELYRA_WRITABLE_CONTAINER_DIR\",\"value\":\"/tmp\"},{\"name\":\"ELYRA_RUN_NAME\",\"value\":\"random-placeholder\"}],\"image\":\"quay.io/modh/runtime-images@sha256:6e79572d12176d89911130875b70e4f20c5150577be7053374f5c5e711621946\"}",
+                    "pipelines.kubeflow.org/implementations-comp-run-a-file-2": "{\"args\":[\"sh -c \\\"mkdir -p ./jupyter-work-dir \\u0026\\u0026 cd ./jupyter-work-dir\\\"\\nsh -c \\\"echo 'Downloading file:///opt/app-root/bin/utils/bootstrapper.py' \\u0026\\u0026 curl --fail -H 'Cache-Control: no-cache' -L file:///opt/app-root/bin/utils/bootstrapper.py --output bootstrapper.py\\\"\\nsh -c \\\"echo 'Downloading file:///opt/app-root/bin/utils/requirements-elyra.txt' \\u0026\\u0026 curl --fail -H 'Cache-Control: no-cache' -L file:///opt/app-root/bin/utils/requirements-elyra.txt --output requirements-elyra.txt\\\"\\nsh -c \\\"python3 -m pip install  packaging \\u0026\\u0026 python3 -m pip freeze \\u003e requirements-current.txt \\u0026\\u0026 python3 bootstrapper.py --pipeline-name 'show_must_goon' --cos-endpoint 'http://minio-service.s3minio.svc.cluster.local:9000' --cos-bucket 'pipeline' --cos-directory 'show_must_goon-0614082355' --cos-dependencies-archive 'NotebookExample2-63b88238-caaa-44f9-aaee-9b8c55b8fc02.tar.gz' --file 'pipeline_example/NotebookExample2.ipynb' \\\"\\n\"],\"command\":[\"sh\",\"-c\"],\"env\":[{\"name\":\"ELYRA_RUNTIME_ENV\",\"value\":\"kfp\"},{\"name\":\"ELYRA_ENABLE_PIPELINE_INFO\",\"value\":\"True\"},{\"name\":\"ELYRA_WRITABLE_CONTAINER_DIR\",\"value\":\"/tmp\"},{\"name\":\"ELYRA_RUN_NAME\",\"value\":\"random-placeholder\"}],\"image\":\"quay.io/modh/runtime-images@sha256:6e79572d12176d89911130875b70e4f20c5150577be7053374f5c5e711621946\"}",
                     "pipelines.kubeflow.org/kubernetes-comp-run-a-file": "{\"podMetadata\":{\"annotations\":{\"elyra/node-file-name\":\"pipeline_example/NotebookExample1.ipynb\",\"elyra/pipeline-source\":\"show_must_goon.pipeline\"},\"labels\":{\"elyra/experiment-name\":\"\",\"elyra/node-name\":\"NotebookExample1\",\"elyra/node-type\":\"notebook-script\",\"elyra/pipeline-name\":\"show_must_goon\",\"elyra/pipeline-version\":\"\"}},\"secretAsEnv\":[{\"keyToEnv\":[{\"envVar\":\"AWS_ACCESS_KEY_ID\",\"secretKey\":\"AWS_ACCESS_KEY_ID\"},{\"envVar\":\"AWS_SECRET_ACCESS_KEY\",\"secretKey\":\"AWS_SECRET_ACCESS_KEY\"}],\"secretName\":\"dashboard-dspa-secret\"}]}",
                     "pipelines.kubeflow.org/kubernetes-comp-run-a-file-2": "{\"podMetadata\":{\"annotations\":{\"elyra/node-file-name\":\"pipeline_example/NotebookExample2.ipynb\",\"elyra/pipeline-source\":\"show_must_goon.pipeline\"},\"labels\":{\"elyra/experiment-name\":\"\",\"elyra/node-name\":\"NotebookExample2\",\"elyra/node-type\":\"notebook-script\",\"elyra/pipeline-name\":\"show_must_goon\",\"elyra/pipeline-version\":\"\"}},\"secretAsEnv\":[{\"keyToEnv\":[{\"envVar\":\"AWS_ACCESS_KEY_ID\",\"secretKey\":\"AWS_ACCESS_KEY_ID\"},{\"envVar\":\"AWS_SECRET_ACCESS_KEY\",\"secretKey\":\"AWS_SECRET_ACCESS_KEY\"}],\"secretName\":\"dashboard-dspa-secret\"}]}",
-                    "pipelines.kubeflow.org/run_name": "show_must_goon-0614061221"
+                    "pipelines.kubeflow.org/run_name": "show_must_goon-0614082355",
+                    "workflows.argoproj.io/pod-name-format": "v1"
                 },
+                "creationTimestamp": "2024-06-14T08:23:56Z",
                 "generateName": "show-must-goon-",
+                "generation": 1,
                 "labels": {
-                    "pipeline/runid": "cc54e437-0632-4dac-bf64-cb2cb15ddc5c"
+                    "pipeline/runid": "7d08fa3d-1547-49a7-90cb-84a19dfd7c38",
+                    "workflows.argoproj.io/phase": "Running"
                 },
                 "managedFields": [
                     {
@@ -82,16 +87,36 @@
                                     ".": {},
                                     "f:pipeline/runid": {}
                                 }
+                            }
+                        },
+                        "manager": "apiserver",
+                        "operation": "Update",
+                        "time": "2024-06-14T08:23:56Z"
+                    },
+                    {
+                        "apiVersion": "argoproj.io/v1alpha1",
+                        "fieldsType": "FieldsV1",
+                        "fieldsV1": {
+                            "f:metadata": {
+                                "f:annotations": {
+                                    "f:workflows.argoproj.io/pod-name-format": {}
+                                },
+                                "f:labels": {
+                                    "f:workflows.argoproj.io/phase": {}
+                                }
                             },
                             "f:spec": {},
                             "f:status": {}
                         },
-                        "manager": "apiserver",
+                        "manager": "workflow-controller",
                         "operation": "Update",
-                        "time": "2024-06-14T06:12:22Z"
+                        "time": "2024-06-14T08:23:56Z"
                     }
                 ],
-                "namespace": "ozndenemeproject"
+                "name": "show-must-goon-22wfr",
+                "namespace": "ozndenemeproject",
+                "resourceVersion": "20326374",
+                "uid": "0d33f5a6-651f-48e5-accd-3a3b66213f29"
             },
             "spec": {
                 "arguments": {},
@@ -101,7 +126,7 @@
                         "pipelines.kubeflow.org/v2_component": "true"
                     },
                     "labels": {
-                        "pipeline/runid": "cc54e437-0632-4dac-bf64-cb2cb15ddc5c",
+                        "pipeline/runid": "7d08fa3d-1547-49a7-90cb-84a19dfd7c38",
                         "pipelines.kubeflow.org/v2_component": "true"
                     }
                 },
@@ -115,7 +140,7 @@
                                 "--pipeline_name",
                                 "show-must-goon",
                                 "--run_id",
-                                "cc54e437-0632-4dac-bf64-cb2cb15ddc5c",
+                                "7d08fa3d-1547-49a7-90cb-84a19dfd7c38",
                                 "--dag_execution_id",
                                 "{{inputs.parameters.parent-dag-id}}",
                                 "--component",
@@ -282,6 +307,14 @@
                                 {
                                     "name": "SSL_CERT_DIR",
                                     "value": "/dsp-custom-certs:/etc/ssl/certs:/etc/pki/tls/certs"
+                                },
+                                {
+                                    "name": "oracledbpass",
+                                    "value": "oracledbpass degeri"
+                                },
+                                {
+                                    "name": "oracledbuser",
+                                    "value": "oracledbuser degeri"
                                 }
                             ],
                             "envFrom": [
@@ -530,7 +563,7 @@
                                 "--pipeline_name",
                                 "show-must-goon",
                                 "--run_id",
-                                "cc54e437-0632-4dac-bf64-cb2cb15ddc5c",
+                                "7d08fa3d-1547-49a7-90cb-84a19dfd7c38",
                                 "--dag_execution_id",
                                 "{{inputs.parameters.parent-dag-id}}",
                                 "--component",
@@ -676,14 +709,778 @@
                 ]
             },
             "status": {
+                "artifactRepositoryRef": {
+                    "artifactRepository": {
+                        "archiveLogs": false,
+                        "s3": {
+                            "accessKeySecret": {
+                                "key": "AWS_ACCESS_KEY_ID",
+                                "name": "dashboard-dspa-secret"
+                            },
+                            "bucket": "pipeline",
+                            "endpoint": "http://minio-service.s3minio.svc.cluster.local:9000",
+                            "insecure": false,
+                            "secretKeySecret": {
+                                "key": "AWS_SECRET_ACCESS_KEY",
+                                "name": "dashboard-dspa-secret"
+                            }
+                        }
+                    },
+                    "default": true
+                },
+                "finishedAt": null,
+                "nodes": {
+                    "show-must-goon-22wfr": {
+                        "children": [
+                            "show-must-goon-22wfr-3906330417"
+                        ],
+                        "displayName": "show-must-goon-22wfr",
+                        "finishedAt": null,
+                        "id": "show-must-goon-22wfr",
+                        "name": "show-must-goon-22wfr",
+                        "phase": "Running",
+                        "progress": "0/1",
+                        "startedAt": "2024-06-14T08:23:56Z",
+                        "templateName": "entrypoint",
+                        "templateScope": "local/show-must-goon-22wfr",
+                        "type": "DAG"
+                    },
+                    "show-must-goon-22wfr-3906330417": {
+                        "boundaryID": "show-must-goon-22wfr",
+                        "displayName": "root-driver",
+                        "finishedAt": null,
+                        "id": "show-must-goon-22wfr-3906330417",
+                        "inputs": {
+                            "parameters": [
+                                {
+                                    "name": "component",
+                                    "value": "{\"dag\":{\"tasks\":{\"run-a-file\":{\"cachingOptions\":{\"enableCache\":true},\"componentRef\":{\"name\":\"comp-run-a-file\"},\"taskInfo\":{\"name\":\"NotebookExample1\"}},\"run-a-file-2\":{\"cachingOptions\":{\"enableCache\":true},\"componentRef\":{\"name\":\"comp-run-a-file-2\"},\"dependentTasks\":[\"run-a-file\"],\"taskInfo\":{\"name\":\"NotebookExample2\"}}}}}"
+                                },
+                                {
+                                    "default": "",
+                                    "name": "runtime-config",
+                                    "value": "{}"
+                                },
+                                {
+                                    "default": "",
+                                    "name": "task",
+                                    "value": ""
+                                },
+                                {
+                                    "default": "0",
+                                    "name": "parent-dag-id",
+                                    "value": "0"
+                                },
+                                {
+                                    "default": "-1",
+                                    "name": "iteration-index",
+                                    "value": "-1"
+                                },
+                                {
+                                    "default": "DAG",
+                                    "name": "driver-type",
+                                    "value": "ROOT_DAG"
+                                }
+                            ]
+                        },
+                        "name": "show-must-goon-22wfr.root-driver",
+                        "phase": "Pending",
+                        "progress": "0/1",
+                        "startedAt": "2024-06-14T08:23:56Z",
+                        "templateName": "system-dag-driver",
+                        "templateScope": "local/show-must-goon-22wfr",
+                        "type": "Pod"
+                    }
+                },
+                "phase": "Running",
+                "progress": "0/1",
+                "startedAt": "2024-06-14T08:23:56Z"
+            }
+        },
+        "oldObject": {
+            "apiVersion": "argoproj.io/v1alpha1",
+            "kind": "Workflow",
+            "metadata": {
+                "annotations": {
+                    "pipelines.kubeflow.org/components-comp-run-a-file": "{\"executorLabel\":\"exec-run-a-file\"}",
+                    "pipelines.kubeflow.org/components-comp-run-a-file-2": "{\"executorLabel\":\"exec-run-a-file-2\"}",
+                    "pipelines.kubeflow.org/components-root": "{\"dag\":{\"tasks\":{\"run-a-file\":{\"cachingOptions\":{\"enableCache\":true},\"componentRef\":{\"name\":\"comp-run-a-file\"},\"taskInfo\":{\"name\":\"NotebookExample1\"}},\"run-a-file-2\":{\"cachingOptions\":{\"enableCache\":true},\"componentRef\":{\"name\":\"comp-run-a-file-2\"},\"dependentTasks\":[\"run-a-file\"],\"taskInfo\":{\"name\":\"NotebookExample2\"}}}}}",
+                    "pipelines.kubeflow.org/implementations-comp-run-a-file": "{\"args\":[\"sh -c \\\"mkdir -p ./jupyter-work-dir \\u0026\\u0026 cd ./jupyter-work-dir\\\"\\nsh -c \\\"echo 'Downloading file:///opt/app-root/bin/utils/bootstrapper.py' \\u0026\\u0026 curl --fail -H 'Cache-Control: no-cache' -L file:///opt/app-root/bin/utils/bootstrapper.py --output bootstrapper.py\\\"\\nsh -c \\\"echo 'Downloading file:///opt/app-root/bin/utils/requirements-elyra.txt' \\u0026\\u0026 curl --fail -H 'Cache-Control: no-cache' -L file:///opt/app-root/bin/utils/requirements-elyra.txt --output requirements-elyra.txt\\\"\\nsh -c \\\"python3 -m pip install  packaging \\u0026\\u0026 python3 -m pip freeze \\u003e requirements-current.txt \\u0026\\u0026 python3 bootstrapper.py --pipeline-name 'show_must_goon' --cos-endpoint 'http://minio-service.s3minio.svc.cluster.local:9000' --cos-bucket 'pipeline' --cos-directory 'show_must_goon-0614082355' --cos-dependencies-archive 'NotebookExample1-e164088a-3809-45a2-861c-5eb74a48c459.tar.gz' --file 'pipeline_example/NotebookExample1.ipynb' \\\"\\n\"],\"command\":[\"sh\",\"-c\"],\"env\":[{\"name\":\"ELYRA_RUNTIME_ENV\",\"value\":\"kfp\"},{\"name\":\"ELYRA_ENABLE_PIPELINE_INFO\",\"value\":\"True\"},{\"name\":\"ELYRA_WRITABLE_CONTAINER_DIR\",\"value\":\"/tmp\"},{\"name\":\"ELYRA_RUN_NAME\",\"value\":\"random-placeholder\"}],\"image\":\"quay.io/modh/runtime-images@sha256:6e79572d12176d89911130875b70e4f20c5150577be7053374f5c5e711621946\"}",
+                    "pipelines.kubeflow.org/implementations-comp-run-a-file-2": "{\"args\":[\"sh -c \\\"mkdir -p ./jupyter-work-dir \\u0026\\u0026 cd ./jupyter-work-dir\\\"\\nsh -c \\\"echo 'Downloading file:///opt/app-root/bin/utils/bootstrapper.py' \\u0026\\u0026 curl --fail -H 'Cache-Control: no-cache' -L file:///opt/app-root/bin/utils/bootstrapper.py --output bootstrapper.py\\\"\\nsh -c \\\"echo 'Downloading file:///opt/app-root/bin/utils/requirements-elyra.txt' \\u0026\\u0026 curl --fail -H 'Cache-Control: no-cache' -L file:///opt/app-root/bin/utils/requirements-elyra.txt --output requirements-elyra.txt\\\"\\nsh -c \\\"python3 -m pip install  packaging \\u0026\\u0026 python3 -m pip freeze \\u003e requirements-current.txt \\u0026\\u0026 python3 bootstrapper.py --pipeline-name 'show_must_goon' --cos-endpoint 'http://minio-service.s3minio.svc.cluster.local:9000' --cos-bucket 'pipeline' --cos-directory 'show_must_goon-0614082355' --cos-dependencies-archive 'NotebookExample2-63b88238-caaa-44f9-aaee-9b8c55b8fc02.tar.gz' --file 'pipeline_example/NotebookExample2.ipynb' \\\"\\n\"],\"command\":[\"sh\",\"-c\"],\"env\":[{\"name\":\"ELYRA_RUNTIME_ENV\",\"value\":\"kfp\"},{\"name\":\"ELYRA_ENABLE_PIPELINE_INFO\",\"value\":\"True\"},{\"name\":\"ELYRA_WRITABLE_CONTAINER_DIR\",\"value\":\"/tmp\"},{\"name\":\"ELYRA_RUN_NAME\",\"value\":\"random-placeholder\"}],\"image\":\"quay.io/modh/runtime-images@sha256:6e79572d12176d89911130875b70e4f20c5150577be7053374f5c5e711621946\"}",
+                    "pipelines.kubeflow.org/kubernetes-comp-run-a-file": "{\"podMetadata\":{\"annotations\":{\"elyra/node-file-name\":\"pipeline_example/NotebookExample1.ipynb\",\"elyra/pipeline-source\":\"show_must_goon.pipeline\"},\"labels\":{\"elyra/experiment-name\":\"\",\"elyra/node-name\":\"NotebookExample1\",\"elyra/node-type\":\"notebook-script\",\"elyra/pipeline-name\":\"show_must_goon\",\"elyra/pipeline-version\":\"\"}},\"secretAsEnv\":[{\"keyToEnv\":[{\"envVar\":\"AWS_ACCESS_KEY_ID\",\"secretKey\":\"AWS_ACCESS_KEY_ID\"},{\"envVar\":\"AWS_SECRET_ACCESS_KEY\",\"secretKey\":\"AWS_SECRET_ACCESS_KEY\"}],\"secretName\":\"dashboard-dspa-secret\"}]}",
+                    "pipelines.kubeflow.org/kubernetes-comp-run-a-file-2": "{\"podMetadata\":{\"annotations\":{\"elyra/node-file-name\":\"pipeline_example/NotebookExample2.ipynb\",\"elyra/pipeline-source\":\"show_must_goon.pipeline\"},\"labels\":{\"elyra/experiment-name\":\"\",\"elyra/node-name\":\"NotebookExample2\",\"elyra/node-type\":\"notebook-script\",\"elyra/pipeline-name\":\"show_must_goon\",\"elyra/pipeline-version\":\"\"}},\"secretAsEnv\":[{\"keyToEnv\":[{\"envVar\":\"AWS_ACCESS_KEY_ID\",\"secretKey\":\"AWS_ACCESS_KEY_ID\"},{\"envVar\":\"AWS_SECRET_ACCESS_KEY\",\"secretKey\":\"AWS_SECRET_ACCESS_KEY\"}],\"secretName\":\"dashboard-dspa-secret\"}]}",
+                    "pipelines.kubeflow.org/run_name": "show_must_goon-0614082355"
+                },
+                "creationTimestamp": "2024-06-14T08:23:56Z",
+                "generateName": "show-must-goon-",
+                "generation": 1,
+                "labels": {
+                    "pipeline/runid": "7d08fa3d-1547-49a7-90cb-84a19dfd7c38"
+                },
+                "managedFields": [
+                    {
+                        "apiVersion": "argoproj.io/v1alpha1",
+                        "fieldsType": "FieldsV1",
+                        "fieldsV1": {
+                            "f:metadata": {
+                                "f:annotations": {
+                                    ".": {},
+                                    "f:pipelines.kubeflow.org/components-comp-run-a-file": {},
+                                    "f:pipelines.kubeflow.org/components-comp-run-a-file-2": {},
+                                    "f:pipelines.kubeflow.org/components-root": {},
+                                    "f:pipelines.kubeflow.org/implementations-comp-run-a-file": {},
+                                    "f:pipelines.kubeflow.org/implementations-comp-run-a-file-2": {},
+                                    "f:pipelines.kubeflow.org/kubernetes-comp-run-a-file": {},
+                                    "f:pipelines.kubeflow.org/kubernetes-comp-run-a-file-2": {},
+                                    "f:pipelines.kubeflow.org/run_name": {}
+                                },
+                                "f:generateName": {},
+                                "f:labels": {
+                                    ".": {},
+                                    "f:pipeline/runid": {}
+                                }
+                            },
+                            "f:spec": {},
+                            "f:status": {}
+                        },
+                        "manager": "apiserver",
+                        "operation": "Update",
+                        "time": "2024-06-14T08:23:56Z"
+                    }
+                ],
+                "name": "show-must-goon-22wfr",
+                "namespace": "ozndenemeproject",
+                "resourceVersion": "20326374",
+                "uid": "0d33f5a6-651f-48e5-accd-3a3b66213f29"
+            },
+            "spec": {
+                "arguments": {},
+                "entrypoint": "entrypoint",
+                "podMetadata": {
+                    "annotations": {
+                        "pipelines.kubeflow.org/v2_component": "true"
+                    },
+                    "labels": {
+                        "pipeline/runid": "7d08fa3d-1547-49a7-90cb-84a19dfd7c38",
+                        "pipelines.kubeflow.org/v2_component": "true"
+                    }
+                },
+                "serviceAccountName": "pipeline-runner-dspa",
+                "templates": [
+                    {
+                        "container": {
+                            "args": [
+                                "--type",
+                                "CONTAINER",
+                                "--pipeline_name",
+                                "show-must-goon",
+                                "--run_id",
+                                "7d08fa3d-1547-49a7-90cb-84a19dfd7c38",
+                                "--dag_execution_id",
+                                "{{inputs.parameters.parent-dag-id}}",
+                                "--component",
+                                "{{inputs.parameters.component}}",
+                                "--task",
+                                "{{inputs.parameters.task}}",
+                                "--container",
+                                "{{inputs.parameters.container}}",
+                                "--iteration_index",
+                                "{{inputs.parameters.iteration-index}}",
+                                "--cached_decision_path",
+                                "{{outputs.parameters.cached-decision.path}}",
+                                "--pod_spec_patch_path",
+                                "{{outputs.parameters.pod-spec-patch.path}}",
+                                "--condition_path",
+                                "{{outputs.parameters.condition.path}}",
+                                "--kubernetes_config",
+                                "{{inputs.parameters.kubernetes-config}}"
+                            ],
+                            "command": [
+                                "driver"
+                            ],
+                            "image": "registry.redhat.io/rhoai/odh-ml-pipelines-driver-rhel8@sha256:fbe17822538ed06b244e9e17a9500d9d1214c21a091c1a66375eb108f55a43cd",
+                            "name": "",
+                            "resources": {
+                                "limits": {
+                                    "cpu": "500m",
+                                    "memory": "512Mi"
+                                },
+                                "requests": {
+                                    "cpu": "100m",
+                                    "memory": "64Mi"
+                                }
+                            }
+                        },
+                        "inputs": {
+                            "parameters": [
+                                {
+                                    "name": "component"
+                                },
+                                {
+                                    "name": "task"
+                                },
+                                {
+                                    "name": "container"
+                                },
+                                {
+                                    "name": "parent-dag-id"
+                                },
+                                {
+                                    "default": "-1",
+                                    "name": "iteration-index"
+                                },
+                                {
+                                    "default": "",
+                                    "name": "kubernetes-config"
+                                }
+                            ]
+                        },
+                        "metadata": {
+                            "annotations": {
+                                "sidecar.istio.io/inject": "false"
+                            }
+                        },
+                        "name": "system-container-driver",
+                        "outputs": {
+                            "parameters": [
+                                {
+                                    "name": "pod-spec-patch",
+                                    "valueFrom": {
+                                        "default": "",
+                                        "path": "/tmp/outputs/pod-spec-patch"
+                                    }
+                                },
+                                {
+                                    "default": "false",
+                                    "name": "cached-decision",
+                                    "valueFrom": {
+                                        "default": "false",
+                                        "path": "/tmp/outputs/cached-decision"
+                                    }
+                                },
+                                {
+                                    "name": "condition",
+                                    "valueFrom": {
+                                        "default": "true",
+                                        "path": "/tmp/outputs/condition"
+                                    }
+                                }
+                            ]
+                        },
+                        "resources": {
+                            "limits": {
+                                "cpu": "2",
+                                "memory": "8Gi"
+                            },
+                            "requests": {
+                                "cpu": "1m",
+                                "memory": "1Mi"
+                            }
+                        }
+                    },
+                    {
+                        "dag": {
+                            "tasks": [
+                                {
+                                    "arguments": {
+                                        "parameters": [
+                                            {
+                                                "name": "pod-spec-patch",
+                                                "value": "{{inputs.parameters.pod-spec-patch}}"
+                                            }
+                                        ]
+                                    },
+                                    "name": "executor",
+                                    "template": "system-container-impl",
+                                    "when": "{{inputs.parameters.cached-decision}} != true"
+                                }
+                            ]
+                        },
+                        "inputs": {
+                            "parameters": [
+                                {
+                                    "name": "pod-spec-patch"
+                                },
+                                {
+                                    "default": "false",
+                                    "name": "cached-decision"
+                                }
+                            ]
+                        },
+                        "metadata": {
+                            "annotations": {
+                                "sidecar.istio.io/inject": "false"
+                            }
+                        },
+                        "name": "system-container-executor",
+                        "outputs": {}
+                    },
+                    {
+                        "container": {
+                            "command": [
+                                "should-be-overridden-during-runtime"
+                            ],
+                            "env": [
+                                {
+                                    "name": "KFP_POD_NAME",
+                                    "valueFrom": {
+                                        "fieldRef": {
+                                            "fieldPath": "metadata.name"
+                                        }
+                                    }
+                                },
+                                {
+                                    "name": "KFP_POD_UID",
+                                    "valueFrom": {
+                                        "fieldRef": {
+                                            "fieldPath": "metadata.uid"
+                                        }
+                                    }
+                                },
+                                {
+                                    "name": "REQUESTS_CA_BUNDLE",
+                                    "value": "/dsp-custom-certs/dsp-ca.crt"
+                                },
+                                {
+                                    "name": "AWS_CA_BUNDLE",
+                                    "value": "/dsp-custom-certs/dsp-ca.crt"
+                                },
+                                {
+                                    "name": "SSL_CERT_FILE",
+                                    "value": "/dsp-custom-certs/dsp-ca.crt"
+                                },
+                                {
+                                    "name": "SSL_CERT_DIR",
+                                    "value": "/dsp-custom-certs:/etc/ssl/certs:/etc/pki/tls/certs"
+                                },
+                                {
+                                    "name": "oracledbpass",
+                                    "value": "oracledbpass degeri"
+                                },
+                                {
+                                    "name": "oracledbuser",
+                                    "value": "oracledbuser degeri"
+                                }
+                            ],
+                            "envFrom": [
+                                {
+                                    "configMapRef": {
+                                        "name": "metadata-grpc-configmap",
+                                        "optional": true
+                                    }
+                                }
+                            ],
+                            "image": "gcr.io/ml-pipeline/should-be-overridden-during-runtime",
+                            "name": "",
+                            "resources": {},
+                            "volumeMounts": [
+                                {
+                                    "mountPath": "/kfp-launcher",
+                                    "name": "kfp-launcher"
+                                },
+                                {
+                                    "mountPath": "/gcs",
+                                    "name": "gcs-scratch"
+                                },
+                                {
+                                    "mountPath": "/s3",
+                                    "name": "s3-scratch"
+                                },
+                                {
+                                    "mountPath": "/minio",
+                                    "name": "minio-scratch"
+                                },
+                                {
+                                    "mountPath": "/.local",
+                                    "name": "dot-local-scratch"
+                                },
+                                {
+                                    "mountPath": "/.cache",
+                                    "name": "dot-cache-scratch"
+                                },
+                                {
+                                    "mountPath": "/.config",
+                                    "name": "dot-config-scratch"
+                                },
+                                {
+                                    "mountPath": "/dsp-custom-certs/dsp-ca.crt",
+                                    "name": "ca-bundle",
+                                    "subPath": "dsp-ca.crt"
+                                }
+                            ]
+                        },
+                        "initContainers": [
+                            {
+                                "command": [
+                                    "launcher-v2",
+                                    "--copy",
+                                    "/kfp-launcher/launch"
+                                ],
+                                "image": "registry.redhat.io/rhoai/odh-ml-pipelines-launcher-rhel8@sha256:fa4ff507138c104b0b3e142ca6beca04505400bff6d81302e792d38197411353",
+                                "name": "kfp-launcher",
+                                "resources": {
+                                    "limits": {
+                                        "cpu": "500m",
+                                        "memory": "128Mi"
+                                    },
+                                    "requests": {
+                                        "cpu": "100m"
+                                    }
+                                },
+                                "volumeMounts": [
+                                    {
+                                        "mountPath": "/kfp-launcher",
+                                        "name": "kfp-launcher"
+                                    }
+                                ]
+                            }
+                        ],
+                        "inputs": {
+                            "parameters": [
+                                {
+                                    "name": "pod-spec-patch"
+                                }
+                            ]
+                        },
+                        "metadata": {
+                            "annotations": {
+                                "sidecar.istio.io/inject": "false"
+                            }
+                        },
+                        "name": "system-container-impl",
+                        "outputs": {},
+                        "podSpecPatch": "{{inputs.parameters.pod-spec-patch}}",
+                        "resources": {
+                            "limits": {
+                                "cpu": "2",
+                                "memory": "8Gi"
+                            },
+                            "requests": {
+                                "cpu": "1m",
+                                "memory": "1Mi"
+                            }
+                        },
+                        "volumes": [
+                            {
+                                "emptyDir": {},
+                                "name": "kfp-launcher"
+                            },
+                            {
+                                "emptyDir": {},
+                                "name": "gcs-scratch"
+                            },
+                            {
+                                "emptyDir": {},
+                                "name": "s3-scratch"
+                            },
+                            {
+                                "emptyDir": {},
+                                "name": "minio-scratch"
+                            },
+                            {
+                                "emptyDir": {},
+                                "name": "dot-local-scratch"
+                            },
+                            {
+                                "emptyDir": {},
+                                "name": "dot-cache-scratch"
+                            },
+                            {
+                                "emptyDir": {},
+                                "name": "dot-config-scratch"
+                            },
+                            {
+                                "configMap": {
+                                    "name": "dsp-trusted-ca-dspa"
+                                },
+                                "name": "ca-bundle"
+                            }
+                        ]
+                    },
+                    {
+                        "dag": {
+                            "tasks": [
+                                {
+                                    "arguments": {
+                                        "parameters": [
+                                            {
+                                                "name": "component",
+                                                "value": "{{workflow.annotations.pipelines.kubeflow.org/components-comp-run-a-file}}"
+                                            },
+                                            {
+                                                "name": "task",
+                                                "value": "{\"cachingOptions\":{\"enableCache\":true},\"componentRef\":{\"name\":\"comp-run-a-file\"},\"taskInfo\":{\"name\":\"NotebookExample1\"}}"
+                                            },
+                                            {
+                                                "name": "container",
+                                                "value": "{{workflow.annotations.pipelines.kubeflow.org/implementations-comp-run-a-file}}"
+                                            },
+                                            {
+                                                "name": "parent-dag-id",
+                                                "value": "{{inputs.parameters.parent-dag-id}}"
+                                            },
+                                            {
+                                                "name": "kubernetes-config",
+                                                "value": "{{workflow.annotations.pipelines.kubeflow.org/kubernetes-comp-run-a-file}}"
+                                            }
+                                        ]
+                                    },
+                                    "name": "run-a-file-driver",
+                                    "template": "system-container-driver"
+                                },
+                                {
+                                    "arguments": {
+                                        "parameters": [
+                                            {
+                                                "name": "pod-spec-patch",
+                                                "value": "{{tasks.run-a-file-driver.outputs.parameters.pod-spec-patch}}"
+                                            },
+                                            {
+                                                "default": "false",
+                                                "name": "cached-decision",
+                                                "value": "{{tasks.run-a-file-driver.outputs.parameters.cached-decision}}"
+                                            }
+                                        ]
+                                    },
+                                    "depends": "run-a-file-driver.Succeeded",
+                                    "name": "run-a-file",
+                                    "template": "system-container-executor"
+                                },
+                                {
+                                    "arguments": {
+                                        "parameters": [
+                                            {
+                                                "name": "component",
+                                                "value": "{{workflow.annotations.pipelines.kubeflow.org/components-comp-run-a-file-2}}"
+                                            },
+                                            {
+                                                "name": "task",
+                                                "value": "{\"cachingOptions\":{\"enableCache\":true},\"componentRef\":{\"name\":\"comp-run-a-file-2\"},\"dependentTasks\":[\"run-a-file\"],\"taskInfo\":{\"name\":\"NotebookExample2\"}}"
+                                            },
+                                            {
+                                                "name": "container",
+                                                "value": "{{workflow.annotations.pipelines.kubeflow.org/implementations-comp-run-a-file-2}}"
+                                            },
+                                            {
+                                                "name": "parent-dag-id",
+                                                "value": "{{inputs.parameters.parent-dag-id}}"
+                                            },
+                                            {
+                                                "name": "kubernetes-config",
+                                                "value": "{{workflow.annotations.pipelines.kubeflow.org/kubernetes-comp-run-a-file-2}}"
+                                            }
+                                        ]
+                                    },
+                                    "depends": "run-a-file.Succeeded",
+                                    "name": "run-a-file-2-driver",
+                                    "template": "system-container-driver"
+                                },
+                                {
+                                    "arguments": {
+                                        "parameters": [
+                                            {
+                                                "name": "pod-spec-patch",
+                                                "value": "{{tasks.run-a-file-2-driver.outputs.parameters.pod-spec-patch}}"
+                                            },
+                                            {
+                                                "default": "false",
+                                                "name": "cached-decision",
+                                                "value": "{{tasks.run-a-file-2-driver.outputs.parameters.cached-decision}}"
+                                            }
+                                        ]
+                                    },
+                                    "depends": "run-a-file-2-driver.Succeeded",
+                                    "name": "run-a-file-2",
+                                    "template": "system-container-executor"
+                                }
+                            ]
+                        },
+                        "inputs": {
+                            "parameters": [
+                                {
+                                    "name": "parent-dag-id"
+                                }
+                            ]
+                        },
+                        "metadata": {
+                            "annotations": {
+                                "sidecar.istio.io/inject": "false"
+                            }
+                        },
+                        "name": "root",
+                        "outputs": {}
+                    },
+                    {
+                        "container": {
+                            "args": [
+                                "--type",
+                                "{{inputs.parameters.driver-type}}",
+                                "--pipeline_name",
+                                "show-must-goon",
+                                "--run_id",
+                                "7d08fa3d-1547-49a7-90cb-84a19dfd7c38",
+                                "--dag_execution_id",
+                                "{{inputs.parameters.parent-dag-id}}",
+                                "--component",
+                                "{{inputs.parameters.component}}",
+                                "--task",
+                                "{{inputs.parameters.task}}",
+                                "--runtime_config",
+                                "{{inputs.parameters.runtime-config}}",
+                                "--iteration_index",
+                                "{{inputs.parameters.iteration-index}}",
+                                "--execution_id_path",
+                                "{{outputs.parameters.execution-id.path}}",
+                                "--iteration_count_path",
+                                "{{outputs.parameters.iteration-count.path}}",
+                                "--condition_path",
+                                "{{outputs.parameters.condition.path}}"
+                            ],
+                            "command": [
+                                "driver"
+                            ],
+                            "image": "registry.redhat.io/rhoai/odh-ml-pipelines-driver-rhel8@sha256:fbe17822538ed06b244e9e17a9500d9d1214c21a091c1a66375eb108f55a43cd",
+                            "name": "",
+                            "resources": {
+                                "limits": {
+                                    "cpu": "500m",
+                                    "memory": "512Mi"
+                                },
+                                "requests": {
+                                    "cpu": "100m",
+                                    "memory": "64Mi"
+                                }
+                            }
+                        },
+                        "inputs": {
+                            "parameters": [
+                                {
+                                    "name": "component"
+                                },
+                                {
+                                    "default": "",
+                                    "name": "runtime-config"
+                                },
+                                {
+                                    "default": "",
+                                    "name": "task"
+                                },
+                                {
+                                    "default": "0",
+                                    "name": "parent-dag-id"
+                                },
+                                {
+                                    "default": "-1",
+                                    "name": "iteration-index"
+                                },
+                                {
+                                    "default": "DAG",
+                                    "name": "driver-type"
+                                }
+                            ]
+                        },
+                        "metadata": {
+                            "annotations": {
+                                "sidecar.istio.io/inject": "false"
+                            }
+                        },
+                        "name": "system-dag-driver",
+                        "outputs": {
+                            "parameters": [
+                                {
+                                    "name": "execution-id",
+                                    "valueFrom": {
+                                        "path": "/tmp/outputs/execution-id"
+                                    }
+                                },
+                                {
+                                    "name": "iteration-count",
+                                    "valueFrom": {
+                                        "default": "0",
+                                        "path": "/tmp/outputs/iteration-count"
+                                    }
+                                },
+                                {
+                                    "name": "condition",
+                                    "valueFrom": {
+                                        "default": "true",
+                                        "path": "/tmp/outputs/condition"
+                                    }
+                                }
+                            ]
+                        },
+                        "resources": {
+                            "limits": {
+                                "cpu": "2",
+                                "memory": "8Gi"
+                            },
+                            "requests": {
+                                "cpu": "1m",
+                                "memory": "1Mi"
+                            }
+                        }
+                    },
+                    {
+                        "dag": {
+                            "tasks": [
+                                {
+                                    "arguments": {
+                                        "parameters": [
+                                            {
+                                                "name": "component",
+                                                "value": "{{workflow.annotations.pipelines.kubeflow.org/components-root}}"
+                                            },
+                                            {
+                                                "name": "runtime-config",
+                                                "value": "{}"
+                                            },
+                                            {
+                                                "name": "driver-type",
+                                                "value": "ROOT_DAG"
+                                            }
+                                        ]
+                                    },
+                                    "name": "root-driver",
+                                    "template": "system-dag-driver"
+                                },
+                                {
+                                    "arguments": {
+                                        "parameters": [
+                                            {
+                                                "name": "parent-dag-id",
+                                                "value": "{{tasks.root-driver.outputs.parameters.execution-id}}"
+                                            },
+                                            {
+                                                "name": "condition",
+                                                "value": ""
+                                            }
+                                        ]
+                                    },
+                                    "depends": "root-driver.Succeeded",
+                                    "name": "root",
+                                    "template": "root"
+                                }
+                            ]
+                        },
+                        "inputs": {},
+                        "metadata": {
+                            "annotations": {
+                                "sidecar.istio.io/inject": "false"
+                            }
+                        },
+                        "name": "entrypoint",
+                        "outputs": {}
+                    }
+                ]
+            },
+            "status": {
                 "finishedAt": null,
                 "startedAt": null
             }
         },
-        "oldObject": null,
         "dryRun": false,
         "options": {
-            "kind": "CreateOptions",
+            "kind": "UpdateOptions",
             "apiVersion": "meta.k8s.io/v1"
         }
     }
