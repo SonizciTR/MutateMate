@@ -2,7 +2,7 @@
     "kind": "AdmissionReview",
     "apiVersion": "admission.k8s.io/v1",
     "request": {
-        "uid": "0dab97e7-7e5f-47c0-868a-0f0f83eb0288",
+        "uid": "a72f3217-5a3a-4f99-9d74-3c034288f4ed",
         "kind": {
             "group": "argoproj.io",
             "version": "v1alpha1",
@@ -23,22 +23,22 @@
             "version": "v1alpha1",
             "resource": "workflows"
         },
-        "namespace": "testing",
+        "namespace": "ozndenemeproject",
         "operation": "CREATE",
         "userInfo": {
-            "username": "system:serviceaccount:testing:ds-pipeline-dspa",
-            "uid": "fff7d606-8222-4b42-86d5-1c48b5d0ec45",
+            "username": "system:serviceaccount:ozndenemeproject:ds-pipeline-dspa",
+            "uid": "fd4cf357-2f46-40de-b35d-b14509a7459e",
             "groups": [
                 "system:serviceaccounts",
-                "system:serviceaccounts:testing",
+                "system:serviceaccounts:ozndenemeproject",
                 "system:authenticated"
             ],
             "extra": {
                 "authentication.kubernetes.io/pod-name": [
-                    "ds-pipeline-dspa-5f86c67c64-xk82m"
+                    "ds-pipeline-dspa-668554694-qtzbz"
                 ],
                 "authentication.kubernetes.io/pod-uid": [
-                    "c815ab77-294c-4904-89a4-2c5049cad29c"
+                    "c85a1a31-7365-4042-bc29-88bb852f9707"
                 ]
             }
         },
@@ -49,16 +49,16 @@
                 "annotations": {
                     "pipelines.kubeflow.org/components-comp-run-a-file": "{\"executorLabel\":\"exec-run-a-file\"}",
                     "pipelines.kubeflow.org/components-comp-run-a-file-2": "{\"executorLabel\":\"exec-run-a-file-2\"}",
-                    "pipelines.kubeflow.org/components-root": "{\"dag\":{\"tasks\":{\"run-a-file\":{\"cachingOptions\":{\"enableCache\":true},\"componentRef\":{\"name\":\"comp-run-a-file\"},\"taskInfo\":{\"name\":\"1\"}},\"run-a-file-2\":{\"cachingOptions\":{\"enableCache\":true},\"componentRef\":{\"name\":\"comp-run-a-file-2\"},\"dependentTasks\":[\"run-a-file\"],\"taskInfo\":{\"name\":\"2\"}}}}}",
-                    "pipelines.kubeflow.org/implementations-comp-run-a-file": "{\"args\":[\"sh -c \\\"mkdir -p ./jupyter-work-dir \\u0026\\u0026 cd ./jupyter-work-dir\\\"\\nsh -c \\\"echo 'Downloading file:///opt/app-root/bin/utils/bootstrapper.py' \\u0026\\u0026 curl --fail -H 'Cache-Control: no-cache' -L file:///opt/app-root/bin/utils/bootstrapper.py --output bootstrapper.py\\\"\\nsh -c \\\"echo 'Downloading file:///opt/app-root/bin/utils/requirements-elyra.txt' \\u0026\\u0026 curl --fail -H 'Cache-Control: no-cache' -L file:///opt/app-root/bin/utils/requirements-elyra.txt --output requirements-elyra.txt\\\"\\nsh -c \\\"python3 -m pip install  packaging \\u0026\\u0026 python3 -m pip freeze \\u003e requirements-current.txt \\u0026\\u0026 python3 bootstrapper.py --pipeline-name 'flow3triggered' --cos-endpoint 'http://minio-service.minio.svc.cluster.local:9000' --cos-bucket 'pipelines' --cos-directory 'flow3triggered-0515062247' --cos-dependencies-archive '1-cb082997-484e-41a5-9ae3-b7bff559d51f.tar.gz' --file '1.ipynb' \\\"\\n\"],\"command\":[\"sh\",\"-c\"],\"env\":[{\"name\":\"ELYRA_RUNTIME_ENV\",\"value\":\"kfp\"},{\"name\":\"ELYRA_ENABLE_PIPELINE_INFO\",\"value\":\"True\"},{\"name\":\"ELYRA_WRITABLE_CONTAINER_DIR\",\"value\":\"/tmp\"},{\"name\":\"ELYRA_RUN_NAME\",\"value\":\"random-placeholder\"}],\"image\":\"quay.io/modh/runtime-images@sha256:093b60140b7de400b0ea9c49271b66f8d498b96834f3503e116a256942f3124f\"}",
-                    "pipelines.kubeflow.org/implementations-comp-run-a-file-2": "{\"args\":[\"sh -c \\\"mkdir -p ./jupyter-work-dir \\u0026\\u0026 cd ./jupyter-work-dir\\\"\\nsh -c \\\"echo 'Downloading file:///opt/app-root/bin/utils/bootstrapper.py' \\u0026\\u0026 curl --fail -H 'Cache-Control: no-cache' -L file:///opt/app-root/bin/utils/bootstrapper.py --output bootstrapper.py\\\"\\nsh -c \\\"echo 'Downloading file:///opt/app-root/bin/utils/requirements-elyra.txt' \\u0026\\u0026 curl --fail -H 'Cache-Control: no-cache' -L file:///opt/app-root/bin/utils/requirements-elyra.txt --output requirements-elyra.txt\\\"\\nsh -c \\\"python3 -m pip install  packaging \\u0026\\u0026 python3 -m pip freeze \\u003e requirements-current.txt \\u0026\\u0026 python3 bootstrapper.py --pipeline-name 'flow3triggered' --cos-endpoint 'http://minio-service.minio.svc.cluster.local:9000' --cos-bucket 'pipelines' --cos-directory 'flow3triggered-0515062247' --cos-dependencies-archive '2-ad7b036e-1440-4006-9d32-b4829f7d6310.tar.gz' --file '2.ipynb' \\\"\\n\"],\"command\":[\"sh\",\"-c\"],\"env\":[{\"name\":\"ELYRA_RUNTIME_ENV\",\"value\":\"kfp\"},{\"name\":\"ELYRA_ENABLE_PIPELINE_INFO\",\"value\":\"True\"},{\"name\":\"ELYRA_WRITABLE_CONTAINER_DIR\",\"value\":\"/tmp\"},{\"name\":\"ELYRA_RUN_NAME\",\"value\":\"random-placeholder\"}],\"image\":\"quay.io/modh/runtime-images@sha256:093b60140b7de400b0ea9c49271b66f8d498b96834f3503e116a256942f3124f\"}",
-                    "pipelines.kubeflow.org/kubernetes-comp-run-a-file": "{\"podMetadata\":{\"annotations\":{\"elyra/node-file-name\":\"1.ipynb\",\"elyra/pipeline-source\":\"untitled.pipeline\"},\"labels\":{\"elyra/experiment-name\":\"\",\"elyra/node-name\":\"1\",\"elyra/node-type\":\"notebook-script\",\"elyra/pipeline-name\":\"flow3triggered\",\"elyra/pipeline-version\":\"\"}},\"secretAsEnv\":[{\"keyToEnv\":[{\"envVar\":\"AWS_ACCESS_KEY_ID\",\"secretKey\":\"AWS_ACCESS_KEY_ID\"},{\"envVar\":\"AWS_SECRET_ACCESS_KEY\",\"secretKey\":\"AWS_SECRET_ACCESS_KEY\"}],\"secretName\":\"dashboard-dspa-secret\"}]}",
-                    "pipelines.kubeflow.org/kubernetes-comp-run-a-file-2": "{\"podMetadata\":{\"annotations\":{\"elyra/node-file-name\":\"2.ipynb\",\"elyra/pipeline-source\":\"untitled.pipeline\"},\"labels\":{\"elyra/experiment-name\":\"\",\"elyra/node-name\":\"2\",\"elyra/node-type\":\"notebook-script\",\"elyra/pipeline-name\":\"flow3triggered\",\"elyra/pipeline-version\":\"\"}},\"secretAsEnv\":[{\"keyToEnv\":[{\"envVar\":\"AWS_ACCESS_KEY_ID\",\"secretKey\":\"AWS_ACCESS_KEY_ID\"},{\"envVar\":\"AWS_SECRET_ACCESS_KEY\",\"secretKey\":\"AWS_SECRET_ACCESS_KEY\"}],\"secretName\":\"dashboard-dspa-secret\"}]}",
-                    "pipelines.kubeflow.org/run_name": "flow3triggered-0515062247"
+                    "pipelines.kubeflow.org/components-root": "{\"dag\":{\"tasks\":{\"run-a-file\":{\"cachingOptions\":{\"enableCache\":true},\"componentRef\":{\"name\":\"comp-run-a-file\"},\"taskInfo\":{\"name\":\"NotebookExample1\"}},\"run-a-file-2\":{\"cachingOptions\":{\"enableCache\":true},\"componentRef\":{\"name\":\"comp-run-a-file-2\"},\"dependentTasks\":[\"run-a-file\"],\"taskInfo\":{\"name\":\"NotebookExample2\"}}}}}",
+                    "pipelines.kubeflow.org/implementations-comp-run-a-file": "{\"args\":[\"sh -c \\\"mkdir -p ./jupyter-work-dir \\u0026\\u0026 cd ./jupyter-work-dir\\\"\\nsh -c \\\"echo 'Downloading file:///opt/app-root/bin/utils/bootstrapper.py' \\u0026\\u0026 curl --fail -H 'Cache-Control: no-cache' -L file:///opt/app-root/bin/utils/bootstrapper.py --output bootstrapper.py\\\"\\nsh -c \\\"echo 'Downloading file:///opt/app-root/bin/utils/requirements-elyra.txt' \\u0026\\u0026 curl --fail -H 'Cache-Control: no-cache' -L file:///opt/app-root/bin/utils/requirements-elyra.txt --output requirements-elyra.txt\\\"\\nsh -c \\\"python3 -m pip install  packaging \\u0026\\u0026 python3 -m pip freeze \\u003e requirements-current.txt \\u0026\\u0026 python3 bootstrapper.py --pipeline-name 'show_must_goon' --cos-endpoint 'http://minio-service.s3minio.svc.cluster.local:9000' --cos-bucket 'pipeline' --cos-directory 'show_must_goon-0614061221' --cos-dependencies-archive 'NotebookExample1-e164088a-3809-45a2-861c-5eb74a48c459.tar.gz' --file 'pipeline_example/NotebookExample1.ipynb' \\\"\\n\"],\"command\":[\"sh\",\"-c\"],\"env\":[{\"name\":\"ELYRA_RUNTIME_ENV\",\"value\":\"kfp\"},{\"name\":\"ELYRA_ENABLE_PIPELINE_INFO\",\"value\":\"True\"},{\"name\":\"ELYRA_WRITABLE_CONTAINER_DIR\",\"value\":\"/tmp\"},{\"name\":\"ELYRA_RUN_NAME\",\"value\":\"random-placeholder\"}],\"image\":\"quay.io/modh/runtime-images@sha256:6e79572d12176d89911130875b70e4f20c5150577be7053374f5c5e711621946\"}",
+                    "pipelines.kubeflow.org/implementations-comp-run-a-file-2": "{\"args\":[\"sh -c \\\"mkdir -p ./jupyter-work-dir \\u0026\\u0026 cd ./jupyter-work-dir\\\"\\nsh -c \\\"echo 'Downloading file:///opt/app-root/bin/utils/bootstrapper.py' \\u0026\\u0026 curl --fail -H 'Cache-Control: no-cache' -L file:///opt/app-root/bin/utils/bootstrapper.py --output bootstrapper.py\\\"\\nsh -c \\\"echo 'Downloading file:///opt/app-root/bin/utils/requirements-elyra.txt' \\u0026\\u0026 curl --fail -H 'Cache-Control: no-cache' -L file:///opt/app-root/bin/utils/requirements-elyra.txt --output requirements-elyra.txt\\\"\\nsh -c \\\"python3 -m pip install  packaging \\u0026\\u0026 python3 -m pip freeze \\u003e requirements-current.txt \\u0026\\u0026 python3 bootstrapper.py --pipeline-name 'show_must_goon' --cos-endpoint 'http://minio-service.s3minio.svc.cluster.local:9000' --cos-bucket 'pipeline' --cos-directory 'show_must_goon-0614061221' --cos-dependencies-archive 'NotebookExample2-63b88238-caaa-44f9-aaee-9b8c55b8fc02.tar.gz' --file 'pipeline_example/NotebookExample2.ipynb' \\\"\\n\"],\"command\":[\"sh\",\"-c\"],\"env\":[{\"name\":\"ELYRA_RUNTIME_ENV\",\"value\":\"kfp\"},{\"name\":\"ELYRA_ENABLE_PIPELINE_INFO\",\"value\":\"True\"},{\"name\":\"ELYRA_WRITABLE_CONTAINER_DIR\",\"value\":\"/tmp\"},{\"name\":\"ELYRA_RUN_NAME\",\"value\":\"random-placeholder\"}],\"image\":\"quay.io/modh/runtime-images@sha256:6e79572d12176d89911130875b70e4f20c5150577be7053374f5c5e711621946\"}",
+                    "pipelines.kubeflow.org/kubernetes-comp-run-a-file": "{\"podMetadata\":{\"annotations\":{\"elyra/node-file-name\":\"pipeline_example/NotebookExample1.ipynb\",\"elyra/pipeline-source\":\"show_must_goon.pipeline\"},\"labels\":{\"elyra/experiment-name\":\"\",\"elyra/node-name\":\"NotebookExample1\",\"elyra/node-type\":\"notebook-script\",\"elyra/pipeline-name\":\"show_must_goon\",\"elyra/pipeline-version\":\"\"}},\"secretAsEnv\":[{\"keyToEnv\":[{\"envVar\":\"AWS_ACCESS_KEY_ID\",\"secretKey\":\"AWS_ACCESS_KEY_ID\"},{\"envVar\":\"AWS_SECRET_ACCESS_KEY\",\"secretKey\":\"AWS_SECRET_ACCESS_KEY\"}],\"secretName\":\"dashboard-dspa-secret\"}]}",
+                    "pipelines.kubeflow.org/kubernetes-comp-run-a-file-2": "{\"podMetadata\":{\"annotations\":{\"elyra/node-file-name\":\"pipeline_example/NotebookExample2.ipynb\",\"elyra/pipeline-source\":\"show_must_goon.pipeline\"},\"labels\":{\"elyra/experiment-name\":\"\",\"elyra/node-name\":\"NotebookExample2\",\"elyra/node-type\":\"notebook-script\",\"elyra/pipeline-name\":\"show_must_goon\",\"elyra/pipeline-version\":\"\"}},\"secretAsEnv\":[{\"keyToEnv\":[{\"envVar\":\"AWS_ACCESS_KEY_ID\",\"secretKey\":\"AWS_ACCESS_KEY_ID\"},{\"envVar\":\"AWS_SECRET_ACCESS_KEY\",\"secretKey\":\"AWS_SECRET_ACCESS_KEY\"}],\"secretName\":\"dashboard-dspa-secret\"}]}",
+                    "pipelines.kubeflow.org/run_name": "show_must_goon-0614061221"
                 },
-                "generateName": "flow3triggered-",
+                "generateName": "show-must-goon-",
                 "labels": {
-                    "pipeline/runid": "460e1ec5-022d-48e4-ab35-5a05193ac464"
+                    "pipeline/runid": "cc54e437-0632-4dac-bf64-cb2cb15ddc5c"
                 },
                 "managedFields": [
                     {
@@ -88,10 +88,10 @@
                         },
                         "manager": "apiserver",
                         "operation": "Update",
-                        "time": "2024-05-15T06:22:48Z"
+                        "time": "2024-06-14T06:12:22Z"
                     }
                 ],
-                "namespace": "testing"
+                "namespace": "ozndenemeproject"
             },
             "spec": {
                 "arguments": {},
@@ -101,7 +101,7 @@
                         "pipelines.kubeflow.org/v2_component": "true"
                     },
                     "labels": {
-                        "pipeline/runid": "460e1ec5-022d-48e4-ab35-5a05193ac464",
+                        "pipeline/runid": "cc54e437-0632-4dac-bf64-cb2cb15ddc5c",
                         "pipelines.kubeflow.org/v2_component": "true"
                     }
                 },
@@ -113,9 +113,9 @@
                                 "--type",
                                 "CONTAINER",
                                 "--pipeline_name",
-                                "flow3triggered",
+                                "show-must-goon",
                                 "--run_id",
-                                "460e1ec5-022d-48e4-ab35-5a05193ac464",
+                                "cc54e437-0632-4dac-bf64-cb2cb15ddc5c",
                                 "--dag_execution_id",
                                 "{{inputs.parameters.parent-dag-id}}",
                                 "--component",
@@ -138,7 +138,7 @@
                             "command": [
                                 "driver"
                             ],
-                            "image": "registry.redhat.io/rhoai/odh-ml-pipelines-driver-rhel8@sha256:b7d2878567710d855e0ce459bdf514bd798457cd4513e51a473ae72cb563cfe6",
+                            "image": "registry.redhat.io/rhoai/odh-ml-pipelines-driver-rhel8@sha256:fbe17822538ed06b244e9e17a9500d9d1214c21a091c1a66375eb108f55a43cd",
                             "name": "",
                             "resources": {
                                 "limits": {
@@ -338,7 +338,7 @@
                                     "--copy",
                                     "/kfp-launcher/launch"
                                 ],
-                                "image": "registry.redhat.io/rhoai/odh-ml-pipelines-launcher-rhel8@sha256:d3ad563c75642b74c74b9ee869ecba7954ba6ab84444e9e381deafc8259d0750",
+                                "image": "registry.redhat.io/rhoai/odh-ml-pipelines-launcher-rhel8@sha256:fa4ff507138c104b0b3e142ca6beca04505400bff6d81302e792d38197411353",
                                 "name": "kfp-launcher",
                                 "resources": {
                                     "limits": {
@@ -421,7 +421,7 @@
                                             },
                                             {
                                                 "name": "task",
-                                                "value": "{\"cachingOptions\":{\"enableCache\":true},\"componentRef\":{\"name\":\"comp-run-a-file\"},\"taskInfo\":{\"name\":\"1\"}}"
+                                                "value": "{\"cachingOptions\":{\"enableCache\":true},\"componentRef\":{\"name\":\"comp-run-a-file\"},\"taskInfo\":{\"name\":\"NotebookExample1\"}}"
                                             },
                                             {
                                                 "name": "container",
@@ -467,7 +467,7 @@
                                             },
                                             {
                                                 "name": "task",
-                                                "value": "{\"cachingOptions\":{\"enableCache\":true},\"componentRef\":{\"name\":\"comp-run-a-file-2\"},\"dependentTasks\":[\"run-a-file\"],\"taskInfo\":{\"name\":\"2\"}}"
+                                                "value": "{\"cachingOptions\":{\"enableCache\":true},\"componentRef\":{\"name\":\"comp-run-a-file-2\"},\"dependentTasks\":[\"run-a-file\"],\"taskInfo\":{\"name\":\"NotebookExample2\"}}"
                                             },
                                             {
                                                 "name": "container",
@@ -528,9 +528,9 @@
                                 "--type",
                                 "{{inputs.parameters.driver-type}}",
                                 "--pipeline_name",
-                                "flow3triggered",
+                                "show-must-goon",
                                 "--run_id",
-                                "460e1ec5-022d-48e4-ab35-5a05193ac464",
+                                "cc54e437-0632-4dac-bf64-cb2cb15ddc5c",
                                 "--dag_execution_id",
                                 "{{inputs.parameters.parent-dag-id}}",
                                 "--component",
@@ -551,7 +551,7 @@
                             "command": [
                                 "driver"
                             ],
-                            "image": "registry.redhat.io/rhoai/odh-ml-pipelines-driver-rhel8@sha256:b7d2878567710d855e0ce459bdf514bd798457cd4513e51a473ae72cb563cfe6",
+                            "image": "registry.redhat.io/rhoai/odh-ml-pipelines-driver-rhel8@sha256:fbe17822538ed06b244e9e17a9500d9d1214c21a091c1a66375eb108f55a43cd",
                             "name": "",
                             "resources": {
                                 "limits": {
