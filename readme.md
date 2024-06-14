@@ -37,7 +37,7 @@ After this start a rollout for deployment.
 
 Becareful sometimes cabundle differ with each custom object definition. If there is an error like : "[WARNING] Invalid request from ip=10.128.0.26: [SSL: SSLV3_ALERT_BAD_CERTIFICATE] sslv3 alert bad certificate (\_ssl.c:2637)", try other caBundles
 
-###JSON Patch:
+### JSON Patch:
 
 This is the commands that makes the changes. Basic information:
 https://jsonpatch.com/
